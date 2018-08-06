@@ -44,6 +44,12 @@ player_team_list = read_rds("data/team_player_master_list.RDS") %>%
          player_title = str_to_title(player)
          )
 
+
+bball_ref_player_list = read_rds("data/bball_ref_player_list.RDS")
+
+bball_ref_16 = read_rds("../data/made_datasets/bball_ref/season_summary/bball_ref_2016.RDS")
+
+
 draft_fuzzy_match = player_team_list %>% 
   fuzzyjoin::fuzzy_left_join(draft, 
                              by = c("player_snake", draft = "year_season_start"),
